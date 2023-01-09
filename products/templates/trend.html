@@ -1,0 +1,69 @@
+{% extends 'base/index.html' %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edi_Marcus24</title>
+    <link rel="stylesheet" href="{% static './styles/streams.css' %}">
+</head>
+<body>
+    <div class="grid-containers">  
+          <header>
+              <div class="list-link-header">
+                <div>
+                    <a href="/#/">Edi_Marcus24</a>
+                </div>
+                <div>
+                    <a href="/#/">Logo
+                        <img src="/#/" alt="A real Logo">
+                    </a>
+                </div>
+                <div>
+                    <a href="/#/">Cart</a>
+                </div>
+                <div class="list-link-connects">
+                    <a href="/#/">About Us</a>
+                    <a href="/#/">Support</a>
+                    <a href="/#/">Reviews</a>
+                    <a href="/#/">feedback</a>
+                    <a href="/#/">Facilities</a>
+                </div>
+              </div>
+        </header>
+        <main id="main-container">  
+            <div>  
+              {% block content %}
+              <ih2>New Varieties Products</ih2>
+              <div class="row">
+                  {% for product in products %}
+                  <div class="col">
+                      <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{{ product.image_url }}" alt="Card image cap">
+                        <div class="card-body">
+                         <h5 class="card-title">{{ product.name }}</h5>
+                         <p class="card-text">${{ product.price }}</p>
+                         <a href="#" class="btn btn-primary">{{ Add to cart }}</a>
+                       </div>
+                     </div>
+                   </div>
+                  {% endfor %}
+               </div>
+              <ul>
+                <!----<li>{{ product.name }} (${{ product.price }})</li>---->
+                <!-------when we end for loop up there, this line become outdated---------->
+                <!---{% endfor %}--->
+              </ul>
+          </div>
+       </main>
+      <footer>
+         All Right Received @2022. Email: cemus24@gmail.com; Call: +2348033323738.
+      </footer>
+    </div> 
+</body>
+{% endblock %}
+</html>
